@@ -17,63 +17,67 @@
 <body>
     <main class="container">
         <div class="row">
-            <section class="col">
-                <h1 class="text-center">Daftar Menu</h1>
+            <section class="col border rounded m-3">
+                <h1 class="text-center mt-3">Daftar Menu</h1>
                 <table class="table">
                     <thead>
                         <tr>
-                            <th scope="col">#</th>
+                            <th class="text-center" scope="col">#</th>
                             <th scope="col">Nama</th>
-                            <th scope="col">Harga</th>
-                            <th scope="col">Jumlah Porsi</th>
-                            <th scope="col">Action</th>
+                            <th class="text-center" scope="col">Harga</th>
+                            <th class="text-center" scope="col">Jumlah Porsi</th>
+                            <th class="text-center" scope="col">Action</th>
                         </tr>
                     </thead>
                     <tbody>
                         <% for( let index=0; index < menu.length; index++ ) { %>
                             <tr>
-                                <th scope="row">
+                                <th class="text-center" scope="row">
                                     <%= menu[index].id %>
                                 </th>
                                 <td>
                                     <%= menu[index].name %>
                                 </td>
-                                <td>
+                                <td class="text-center">
                                     <%= menu[index].price %>
                                 </td>
-                                <td>
+                                <td class="text-center">
                                     <%= menu[index].quantity %>
                                 </td>
-                                <td>
-                                    <a href="/delete/<%= menu[index].id %>"><i class="bi bi-trash"></i></a>
+                                <td class="text-center">
+                                    <a class="link-dark" href="/delete/<%= menu[index].id %>"><i
+                                            class="bi bi-pencil-square"></i></a> |
+                                    <a class="link-dark" href="/delete/<%= menu[index].id %>"><i
+                                            class="bi bi-trash-fill"></i></a>
                                 </td>
                             </tr>
                             <% } %>
                     </tbody>
                 </table>
             </section>
-            <section class="col">
-                <h1 class="text-center">Tambah Menu</h1>
+            <section class="col border rounded m-3">
+                <h1 class="text-center mt-3">Tambah Menu</h1>
                 <form action="/add" method="post">
                     <div class="mb-3">
                         <label for="name" class="form-label">Nama</label>
-                        <input type="text" class="form-control" id="name" placeholder="Nama Menu">
+                        <input type="text" class="form-control" id="name" name="name" placeholder="Nama Menu">
                     </div>
                     <div class="mb-3">
                         <label for="price" class="form-label">Harga</label>
                         <div class="input-group">
                             <span class="input-group-text" id="price">Rp.</span>
-                            <input type="number" class="form-control" id="price" placeholder="Harga Menu">
+                            <input type="number" class="form-control" id="price" name="price" placeholder="Harga Menu">
                         </div>
                     </div>
                     <div class="mb-3">
                         <label for="quantity" class="form-label">Jumlah Porsi</label>
                         <div class="input-group">
-                            <input type="number" class="form-control" id="quantity" placeholder="Jumlah Porsi">
+                            <input type="number" class="form-control" id="quantity" name="quantity"
+                                placeholder="Jumlah Porsi">
                             <span class="input-group-text" id="quantity">Porsi</span>
                         </div>
                     </div>
-                    <button class="btn btn-primary" type="submit">Tambah Menu</button>
+                    <button class="btn btn-primary my-3" type="submit">Tambah Menu</button>
                 </form>
             </section>
         </div>
