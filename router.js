@@ -10,8 +10,12 @@ router.use(function timelog(req, res, next) {
 router.get("/", (req, res) => {
   fs.readFile("./data.json", "utf-8", (err, data) => {
     if (err) throw err;
+    const menus = JSON.parse(data);
+    const menusFiltered = menus.filter((menu) => {
+      return menu.status !== false;
+    });
     res.render("index", {
-      menu: JSON.parse(data),
+      menu: menusFiltered,
     });
   });
 });
@@ -27,8 +31,25 @@ router.post("/add", (req, res) => {
       name: name,
       price: price,
       quantity: quantity,
-      id: menus[menus.length - 1]["id"] + 1,
+      id: menus[menus.length - 1].id + 1,
       status: true,
+    });
+    fs.writeFile("./data.json", JSON.stringify(menus), (err) => {
+      if (err) throw err;
+      res.redirect("/");
+    });
+  });
+});
+
+router.get("/delete/:id", (req, res) => {
+  const idForDeleted = Number(req.params.id);
+  fs.readFile("./data.json", "utf-8", (err, data) => {
+    if (err) throw err;
+    const menus = JSON.parse(data);
+    menus.forEach((menu) => {
+      if (menu.id === idForDeleted) {
+        menu.status = false;
+      }
     });
     fs.writeFile("./data.json", JSON.stringify(menus), (err) => {
       if (err) throw err;

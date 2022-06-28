@@ -22,7 +22,6 @@
                 <table class="table">
                     <thead>
                         <tr>
-                            <th class="text-center" scope="col">#</th>
                             <th scope="col">Nama</th>
                             <th class="text-center" scope="col">Harga</th>
                             <th class="text-center" scope="col">Jumlah Porsi</th>
@@ -32,9 +31,6 @@
                     <tbody>
                         <% for( let index=0; index < menu.length; index++ ) { %>
                             <tr>
-                                <th class="text-center" scope="row">
-                                    <%= menu[index].id %>
-                                </th>
                                 <td>
                                     <%= menu[index].name %>
                                 </td>
