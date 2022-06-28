@@ -13,6 +13,8 @@ const serverError = require("./middleware/serverError");
 const app = express();
 // konfigurasi port
 const port = process.env.PORT;
+// set folder public secara statis
+app.use(express.static("public"));
 // set ejs sebagai view engine
 app.set("view engine", "ejs");
 // implementasi logger

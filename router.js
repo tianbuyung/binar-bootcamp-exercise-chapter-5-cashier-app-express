@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const fs = require("fs");
 
 router.use(function timelog(req, res, next) {
   console.log("Time: ", Date.now());
@@ -7,10 +8,11 @@ router.use(function timelog(req, res, next) {
 });
 
 router.get("/", (req, res) => {
-  // res.send("Cashier App Homepage");
-  const name = req.query.name || "Void";
-  res.render("index", {
-    name,
+  fs.readFile("./data.json", "utf-8", (err, data) => {
+    if (err) throw err;
+    res.render("index", {
+      menu: JSON.parse(data),
+    });
   });
 });
 

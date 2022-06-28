@@ -1,0 +1,9 @@
+[
+  {
+    "name": "Nasi goreng",
+    "price": 15000,
+    "quantity": 10,
+    "id": 1,
+    "status": true
+  }
+]
