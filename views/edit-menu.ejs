@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cashier App</title>
+    <!-- Link to Bootstrap CSS & Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+</head>
+
+<body>
+    <main class="container">
+        <div class="row">
+            <section class="col-6 border rounded m-3">
+                <h1 class="text-center mt-3">Tambah Menu</h1>
+                <form action="/edit" method="post">
+                    <input type="text" class="form-control visually-hidden" id="id" name="id" placeholder="id Menu"
+                        value="<%= editMenu[0].id %>">
+                    <input type="text" class="form-control visually-hidden" id="status" name="status"
+                        placeholder="status Menu" value="<%= editMenu[0].status %>">
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Nama</label>
+                        <input type="text" class="form-control" id="name" name="name" placeholder="Nama Menu"
+                            value="<%= editMenu[0].name %>">
+                    </div>
+                    <div class="mb-3">
+                        <label for="price" class="form-label">Harga</label>
+                        <div class="input-group">
+                            <span class="input-group-text" id="price">Rp.</span>
+                            <input type="number" class="form-control" id="price" name="price" placeholder="Harga Menu"
+                                value="<%= editMenu[0].price %>">
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="quantity" class="form-label">Jumlah Porsi</label>
+                        <div class="input-group">
+                            <input type="number" class="form-control" id="quantity" name="quantity"
+                                placeholder="Jumlah Porsi" value="<%= editMenu[0].quantity %>">
+                            <span class="input-group-text" id="quantity">Porsi</span>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary my-3" type="submit">Edit Menu</button>
+                    <button class="btn btn-secondary my-3" href="/">Cancel</button>
+                </form>
+            </section>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
